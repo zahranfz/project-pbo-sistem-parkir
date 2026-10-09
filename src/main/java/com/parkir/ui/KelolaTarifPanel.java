@@ -77,6 +77,7 @@ public class KelolaTarifPanel extends JPanel {
         cbJenis = new JComboBox<>(JenisKendaraan.values());
         cbJenis.setFont(UITheme.FONT_BODY);
         cbJenis.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        cbJenis.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblP1 = new JLabel("Tarif Jam Pertama (Rp)");
         lblP1.setFont(UITheme.FONT_BOLD);
@@ -84,6 +85,7 @@ public class KelolaTarifPanel extends JPanel {
         tfJamPertama = new JTextField();
         tfJamPertama.setFont(UITheme.FONT_BODY);
         tfJamPertama.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        tfJamPertama.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblP2 = new JLabel("Tarif Jam Berikutnya (Rp)");
         lblP2.setFont(UITheme.FONT_BOLD);
@@ -91,6 +93,7 @@ public class KelolaTarifPanel extends JPanel {
         tfJamBerikutnya = new JTextField();
         tfJamBerikutnya.setFont(UITheme.FONT_BODY);
         tfJamBerikutnya.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        tfJamBerikutnya.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblMax = new JLabel("Maksimal Harian (Rp)");
         lblMax.setFont(UITheme.FONT_BOLD);
@@ -98,9 +101,11 @@ public class KelolaTarifPanel extends JPanel {
         tfMaksHarian = new JTextField();
         tfMaksHarian.setFont(UITheme.FONT_BODY);
         tfMaksHarian.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        tfMaksHarian.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         btnSimpan = UITheme.createPrimaryButton("Simpan Perubahan");
         btnSimpan.setMaximumSize(new Dimension(Integer.MAX_VALUE, 38));
+        btnSimpan.setAlignmentX(Component.LEFT_ALIGNMENT);
         btnSimpan.addActionListener(e -> simpanTarif());
 
         // Sinkronkan input form saat ganti combo box

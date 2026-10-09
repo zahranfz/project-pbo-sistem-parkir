@@ -53,6 +53,11 @@ public class KendaraanMasukPanel extends JPanel {
         JPanel formCard = UITheme.createCard();
         formCard.setLayout(new BoxLayout(formCard, BoxLayout.Y_AXIS));
 
+        JLabel lblFormTitle = new JLabel("Form Kendaraan Masuk");
+        lblFormTitle.setFont(UITheme.FONT_HEADER);
+        lblFormTitle.setForeground(UITheme.PRIMARY);
+        lblFormTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
+
         JLabel lblPlat = new JLabel("Plat Nomor (contoh: AD 1234 AB)");
         lblPlat.setFont(UITheme.FONT_BOLD);
         lblPlat.setForeground(UITheme.TEXT_MAIN);
@@ -61,6 +66,7 @@ public class KendaraanMasukPanel extends JPanel {
         tfPlat = new JTextField();
         tfPlat.setFont(new Font("Consolas", Font.BOLD, 16));
         tfPlat.setMaximumSize(new Dimension(Integer.MAX_VALUE, 38));
+        tfPlat.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblJenis = new JLabel("Jenis Kendaraan");
         lblJenis.setFont(UITheme.FONT_BOLD);
@@ -70,11 +76,15 @@ public class KendaraanMasukPanel extends JPanel {
         cbJenis = new JComboBox<>(JenisKendaraan.values());
         cbJenis.setFont(UITheme.FONT_BODY);
         cbJenis.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        cbJenis.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         btnSimpan = UITheme.createPrimaryButton("Cetak Karcis & Masuk");
         btnSimpan.setMaximumSize(new Dimension(Integer.MAX_VALUE, 38));
+        btnSimpan.setAlignmentX(Component.LEFT_ALIGNMENT);
         btnSimpan.addActionListener(e -> prosesMasuk());
 
+        formCard.add(lblFormTitle);
+        formCard.add(Box.createVerticalStrut(16));
         formCard.add(lblPlat);
         formCard.add(Box.createVerticalStrut(6));
         formCard.add(tfPlat);

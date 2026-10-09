@@ -47,14 +47,17 @@ public class KendaraanKeluarPanel extends JPanel {
         JLabel lblPrompt = new JLabel("Masukkan Nomor Karcis atau Plat Nomor:");
         lblPrompt.setFont(UITheme.FONT_BOLD);
         lblPrompt.setForeground(UITheme.TEXT_MAIN);
-        lblPrompt.setAlignmentX(Component.LEFT_ALIGNMENT);
+        lblPrompt.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         tfQuery = new JTextField();
         tfQuery.setFont(new Font("Consolas", Font.BOLD, 18));
+        tfQuery.setHorizontalAlignment(JTextField.CENTER);
         tfQuery.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
+        tfQuery.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         btnProses = UITheme.createPrimaryButton("Hitung Biaya & Selesaikan Parkir");
         btnProses.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
+        btnProses.setAlignmentX(Component.CENTER_ALIGNMENT);
         btnProses.addActionListener(e -> prosesKeluar());
 
         card.add(Box.createVerticalStrut(10));

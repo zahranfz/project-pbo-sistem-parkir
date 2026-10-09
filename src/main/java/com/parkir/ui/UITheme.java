@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
@@ -103,7 +104,7 @@ public final class UITheme {
         header.setPreferredSize(new Dimension(header.getPreferredSize().width, 36));
         header.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, BORDER));
 
-        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
+        DefaultTableCellRenderer leftRenderer = new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable t, Object value,
                                                            boolean isSelected, boolean hasFocus, int row, int col) {
@@ -111,12 +112,51 @@ public final class UITheme {
                 if (!isSelected) {
                     c.setBackground(row % 2 == 0 ? Color.WHITE : TABLE_ROW_ALT);
                 }
-                setBorder(BorderFactory.createEmptyBorder(0, 8, 0, 8));
+                setHorizontalAlignment(SwingConstants.LEFT);
+                setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
                 return c;
             }
         };
+
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable t, Object value,
+                                                           boolean isSelected, boolean hasFocus, int row, int col) {
+                Component c = super.getTableCellRendererComponent(t, value, isSelected, hasFocus, row, col);
+                if (!isSelected) {
+                    c.setBackground(row % 2 == 0 ? Color.WHITE : TABLE_ROW_ALT);
+                }
+                setHorizontalAlignment(SwingConstants.RIGHT);
+                setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
+                return c;
+            }
+        };
+
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable t, Object value,
+                                                           boolean isSelected, boolean hasFocus, int row, int col) {
+                Component c = super.getTableCellRendererComponent(t, value, isSelected, hasFocus, row, col);
+                if (!isSelected) {
+                    c.setBackground(row % 2 == 0 ? Color.WHITE : TABLE_ROW_ALT);
+                }
+                setHorizontalAlignment(SwingConstants.CENTER);
+                setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
+                return c;
+            }
+        };
+
         for (int i = 0; i < table.getColumnCount(); i++) {
-            table.getColumnModel().getColumn(i).setCellRenderer(renderer);
+            String colName = table.getColumnName(i).toLowerCase();
+            if (colName.contains("rp") || colName.contains("jam") || colName.contains("maks")
+                    || colName.contains("biaya") || colName.contains("pendapatan")
+                    || colName.contains("jumlah")) {
+                table.getColumnModel().getColumn(i).setCellRenderer(rightRenderer);
+            } else if (colName.contains("slot") || colName.contains("status") || colName.contains("jenis")) {
+                table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+            } else {
+                table.getColumnModel().getColumn(i).setCellRenderer(leftRenderer);
+            }
         }
     }
 }

@@ -85,18 +85,21 @@ public class KelolaPetugasPanel extends JPanel {
         lblU.setAlignmentX(Component.LEFT_ALIGNMENT);
         tfUsername = new JTextField();
         tfUsername.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        tfUsername.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblP = new JLabel("Password");
         lblP.setFont(UITheme.FONT_BOLD);
         lblP.setAlignmentX(Component.LEFT_ALIGNMENT);
         tfPassword = new JPasswordField();
         tfPassword.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        tfPassword.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblN = new JLabel("Nama Lengkap");
         lblN.setFont(UITheme.FONT_BOLD);
         lblN.setAlignmentX(Component.LEFT_ALIGNMENT);
         tfNama = new JTextField();
         tfNama.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        tfNama.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblR = new JLabel("Peran");
         lblR.setFont(UITheme.FONT_BOLD);
@@ -104,9 +107,11 @@ public class KelolaPetugasPanel extends JPanel {
         cbPeran = new JComboBox<>(Peran.values());
         cbPeran.setSelectedItem(Peran.PETUGAS);
         cbPeran.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        cbPeran.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         btnTambah = UITheme.createPrimaryButton("Simpan Akun");
         btnTambah.setMaximumSize(new Dimension(Integer.MAX_VALUE, 38));
+        btnTambah.setAlignmentX(Component.LEFT_ALIGNMENT);
         btnTambah.addActionListener(e -> simpanAkun());
 
         formCard.add(lblFormTitle);
